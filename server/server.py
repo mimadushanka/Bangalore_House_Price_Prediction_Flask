@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,jsonify
-import util
+from . import util
 import os
 # Tell Flask where to look for templates
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'))
@@ -15,7 +15,8 @@ def get_location_names():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    locations = util.get_location_names()
+    locations = util.get_location_names() or []
+   # print("LOCATIONS:", locations)
     if request.method == 'POST':
         total_sqft = float(request.form['total_sqft'])
         location = request.form['location']
@@ -30,7 +31,7 @@ def home():
                                selected_bhk=bhk,
                                selected_bath=bath,
                                selected_location=location)
-
+ 
     return render_template('client/app.html', locations=locations)
 
 if __name__=="__main__":
