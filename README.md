@@ -50,6 +50,8 @@ BHP_Flask/
 └── README.md
 #  Bangalore House Price Prediction - ML Web App
 
+![appdemo](BangaloreHouse.gif "bangalore House price demo")
+
 This project is a **Machine Learning-powered web application** that predicts house prices in Bangalore based on features like location, BHK, and square footage.
 
 ##  Features
